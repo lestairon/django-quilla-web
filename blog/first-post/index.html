@@ -75,7 +75,7 @@
           </a>
         </csmall2>
       </div>
-      <div>
+      <div id="body-content">
           <p>La comunidad se place en anunciar que el nuevo sitio web se encuentra en desarrollo activo para lo cual se está usando lektor como gestor de contenidos</p>
 
           <div class="comments">
@@ -217,8 +217,12 @@
     });
     
     $(window).on('resize', function () { 
-    setPortfolio();          
-  });
+      setPortfolio();          
+    });
+
+		$('#body-content').children().children().each(function(index, tag) {
+			if (tag.tagName == 'A') { $(tag).attr('target', '_blank'); }
+		});
 })(jQuery);
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
