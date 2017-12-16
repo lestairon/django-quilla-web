@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="../../ico/favicon.png">
+  <title>Una guía completa de Django para principiantes- Parte 1 </title>
+  <link rel="stylesheet" href="../../static/gen/styles.css?h=0d5dda05">
+  <!--<link rel="stylesheet" href="../../static/gen/styles.css?h=0d5dda05">
+  <!-- Just for debugging purposes. Don't actually copy this line! -->
+  <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@pybaq" />
+  <meta name="twitter:creator" content="@" />
+  <meta name="description" content="Traducción del articulo https://simpleisbetterthancomplex.com/series/2017/09/04/a-complete-beginners-guide-to-django-part-1.html.">
+  <meta name="author" content="Python Barranquilla">
+  <meta property="og:title" content="Una guía completa de Django para principiantes- Parte 1" />
+  <meta property="og:type" content="article" />
+  <meta property="og:description" content="Traducción del articulo https://simpleisbetterthancomplex.com/series/2017/09/04/a-complete-beginners-guide-to-django-part-1.html" />
+  
+  <meta property="og:url" content="http://pybaq.co/blog/una-guia-completa-de-django-para-principiantes-parte-1/" />
+  <meta property="og:site_name" content="http://pybaq.co/" />
+
+</head>
+
+<body>
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../">
+          <img class="navbar-logo" src="../../img/pybaq-logo.png">
+        </a>
+      </div>
+      <div class="navbar-collapse collapse navbar-right">
+        <ul class="nav navbar-nav">
+          <li><a href="../../">INICIO</a></li>
+          
+            <li><a href="../../about/">NOSOTROS</a></li>
+          
+            <li class="active"><a href="../../blog/">BLOG</a></li>
+          
+            <li><a href="../../eventos/">EVENTOS</a></li>
+          
+            <li><a href="../../contact/">CONTACTO</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div style="height: 70px"></div>
+  
+<div id="blue">
+    <div class="container">
+      <div class="row">
+        <h3>Artículo</h3>
+      </div>
+    </div>
+</div>
+<div class="container mtb">
+  <div class="row">
+    <div class="col-lg-8">
+      <div class="post-meta blog_post-post_meta">
+        
+        <h1 class="ctitle">Una guía completa de Django para principiantes- Parte 1</h1>
+        <csmall>Escrito: 2017-12-15.</csmall> | <csmall2>
+        por: 
+          Paula Aragón
+        </csmall2>
+      </div>
+      <div id="body-content" class="blog_post-body">
+          <h1>Una guía completa de Django para principiantes- Parte 1</h1>
+<p><img src="https://user-images.githubusercontent.com/16352805/33792124-4d9f1f68-dc66-11e7-8913-20afb5a2a63e.png" alt="img1"></p>
+<h2>Introducción</h2>
+<p><img src="https://user-images.githubusercontent.com/16352805/33792139-7da3265a-dc66-11e7-84d6-9c8633eea386.png" alt="img2"></p>
+<p>Hoy estoy comenzando una nueva serie de tutoriales sobre los fundamentos de Django. Es una guía completa para comenzar a aprender Django. El material esta dividido en 7 partes. Vamos a explorar todos los conceptos básicos con mucho detalle, desde la instalación, preparación de entorno de desarrollo, modelos, vistas, plantillas, URLS y más temas avanzados como migraciones, pruebas y despliegues.
+Quería hacer algo diferente. Un tutorial que fuese fácil de seguir, informativo y divertido de leer. Ahí fue cuando surgió esta idea de crear algunas viñetas a los algo del texto para ilustrar algunos conceptos y escenarios. ¡Espero que disfruten la lectura!</p>
+<p>Pero antes de comenzar…</p>
+<p>Antes cuando trabajaba como profesor substituto en una universidad, yo solía enseñar una introducción a la disciplina de desarrollo web para los nuevos estudiantes del curso de Ciencias de la computación, y siempre comenzaba una clase nueva con esta frase de Confucio:</p>
+<p><img src="https://user-images.githubusercontent.com/16352805/33792140-7dbee386-dc66-11e7-967e-2813f9f8201d.png" alt="img3"></p>
+<p>¡Así que manos a la obra! No solo leas los tutoriales. ¡Vamos a hacerlo juntos! Aprenderás mucho más haciendo y practicando.</p>
+<h2>¿Por qué Django?</h2>
+<p>Django es un framework web escrito en Python. Un framework web es un software que soporta el desarrollo dinámico de sitios web, aplicaciones y servicios. Provee una serie de herramientas y funcionalidades que resuelven muchos problemas comunes asociados con el desarrollo web, tales como características de seguridad, acceso a bases de datos, sesiones, procesamiento de plantillas, ruteo de URLS, internacionalización, ubicación y mucho más.</p>
+<p>Usar un framework web, tal como Django, te permite desarrollar aplicaciones web seguras y confiables de muy rápido de una forma estandarizada, sin tener que reinventar la rueda.</p>
+<p>Entonces, ¿qué es tan especial sobre Django? Para empezar, es un framework web de Python, lo que significa que puedes beneficiarte de una gran variedad de librerías de código abierto. El índice de paquetes de Python contiene alrededor de 116K paquetes (hasta Sept 6 de 2017). Si necesitas resolver un problema específico, hay altas probabilidades de que alguien haya implementado una librería para eso.
+Django es uno de los frameworks web escritos en Python más populares. Es definitivamente el más completo, ofreciendo un amplio rango de características para usar de forma rápida, tales como un servidor web autónomo para desarrollo y pruebas, caché, sistemas middleware, ORM, motor de plantillas, procesamiento de formularios e interfaces con las herramientas de pruebas unitarias de Python. Django también viene con “batería incluida”, ofreciendo aplicaciones construidas tales como sistemas de autenticación, una interfaz administrativa con paginas generadas automáticamente para operaciones CRUD, generación de feeds (RSS/Atom) y mapas de sitio. Existe incluso un framework de información geográfica (GIS) construido con Django.</p>
+<p>El desarrollo de Django es soportado por Django Software Foundation, y es patrocinado por compañías cono JetBrains e Instagram. Django ha estado en desarrollo activo por más de 12 años, probando que es un framework web maduro, confiable y seguro.</p>
+<h2>¿Quién usa Django?</h2>
+<p>Es bueno saber quién está allá afuera usando Django, para que tengas una idea de que puedes hacer con él. Entre los más grandes sitios web que utilizan Django tenemos: Instagram, Disqus, Mozilla, Bitbucket, Last.fm, National Geographic.</p>
+<p>Para más ejemplo puedes ver la base de datos Django Sites, donde  se ofrece una lista de más de 5K sitios web realizados con Django.</p>
+<p>Por cierto, el años pasado, en la conferencia Django Under The Hood 2016, Carl Meyer, un desarrollador del core de Django, y empleado de Instagram, dio una charla sobre Como Instagram usa Django en escala y como soporta su crecimiento, Es una charla de una hora, pero si estas interesado en aprender más, fue una muy entretenida.</p>
+<h2>Instalación</h2>
+<p><img src="https://user-images.githubusercontent.com/16352805/33792141-7dd81518-dc66-11e7-9de1-69c877a0559e.png" alt="img4"></p>
+<p>Lo primero que debemos hacer es instalar algunos programas en nuestra máquina para empezar a jugar con Django. La configuración básica consiste en instalar Python, Virtualenv y Django.</p>
+<p>Usar entornos virtuales no es obligatorio, pero es muy recomendado. Si apenas estas comenzando, es mejor comenzar con el pie derecho.
+Cuando se desarrollan sitios web o proyectos con Django, es uy común tener que instalar librerías externas para apoyar el desarrollo. Usando entornos virtuales, cada proyecto que desarrolles tiene su ambiente aislado., así que las dependencias no harán conflictos, y te permite mantener en tu ambiente local proyectos que se ejecutan con distintas versiones de Django.
+Es muy fácil de usar, ¡ya lo veras!</p>
+<h2>Instalando Python 3.6.2</h2>
+<p>Lo primero que queremos hacer es instalar la última distribución de Python, la cual es Python 3.6.2 al momento de escribir este tutorial. Si existe una nueva versión descárgala, los siguientes pasos deberían mantenerse más o menos iguales.
+Vamos a usar Python 3 porque las librerías más importantes han sido migradas a este y porque la siguiente versión de Django 2.x no soportará Python 2.</p>
+<p>Ve a [www.python.org], haz clic en la página de descarga de Pyhton 3.6.3, baja hasta que veas los archivos de descarga listados abajo:</p>
+<p><img src="https://user-images.githubusercontent.com/16352805/33792142-7df319d0-dc66-11e7-9851-856e68f1b1bf.png" alt="img5"></p>
+<p>Escoge el correcto de acuerdo a tu distribución de Windows. Si no estás seguro de cual escoger, lo más probable es que debas descargar la versión Windows x86-64 executable installer.</p>
+<p>Ve a tu carpeta de Descargas, haz clic derecho y selecciona Ejecutar como Adminstrador.</p>
+<p><img src="https://user-images.githubusercontent.com/16352805/33792143-7e1d8af8-dc66-11e7-96d2-715b179d9b4d.png" alt="img6"></p>
+<p>Asegúrate de que escoger la opción Agregar Python 3.6 al Path y haz clic en la opción Instalar Ahora.</p>
+<p><img src="https://user-images.githubusercontent.com/16352805/33792144-7e89e806-dc66-11e7-9e19-ddf2fcfe0d5f.png" alt="img7"></p>
+<p>Cuando se termina la instalación, deberías ver la siguiente pantalla:</p>
+<p><img src="https://user-images.githubusercontent.com/16352805/33792145-7eaa68ba-dc66-11e7-8d0f-86b071b46ef7.png" alt="img8"></p>
+<p>Ahora busca por la Ventana de Comandos y ábrelo:</p>
+<p><img src="https://user-images.githubusercontent.com/16352805/33792146-7ec4ad38-dc66-11e7-810d-d4266a77137e.png" alt="img9"></p>
+<p>Para probar si todo está bien, escribe el siguiente comando: python –-version
+Como respuesta deberías ver:</p>
+<div class="hll"><pre><span></span><span class="n">Python</span> <span class="mf">3.6</span><span class="o">.</span><span class="mi">3</span>
+</pre></div>
+<p><img src="https://user-images.githubusercontent.com/16352805/33792147-7edf3126-dc66-11e7-9315-2633ce0d95cf.png" alt="img10"></p>
+<p>Genial, Python está instalado y ejecutándose. Siguiente paso: ¡Entornos Virtuales!</p>
+<h2>Instalando Virtualenv</h2>
+<p>Para el siguiente paso, vamos a usar pip, una herramienta que administra e instala paquetes de Python, para instalar virtualenv.</p>
+<p>En la ventana de comandos, ejecuta el siguiente comando:</p>
+<div class="hll"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">virtualenv</span>
+</pre></div>
+<p><img src="https://user-images.githubusercontent.com/16352805/33792148-7ef8c514-dc66-11e7-9030-1857c2f3eb13.png" alt="img11"></p>
+<p>Hasta el momento, la instalación que hemos hecho es en todo el sistema. Desde ahora, todo lo que instalemos, incluyendo Django, será instalado en un entorno virtual.</p>
+<p>Piénsalo de esta forma: Para cada proyecto Django que inicies, primero crearas un entorno virtual, que es como tener una caja de arena para cada proyecto con la que puedes jugar, instalar y desinstalar paquetes sin dañar nada.</p>
+<p>A mí me gusta crear una carpeta llamada Desarrollo en mi computador personal. Luego, la uso para organizar todos mis proyectos y sitios web, pero puedes seguir los siguientes pasos y crear los directorios como te parezca mejor.</p>
+<p>Usualmente, empiezo creando una nueva carpeta con el nombre del proyecto dentro de mi carpeta Desarrollo. Siendo este nuestro primer proyecto, no necesitamos un nombre muy elaborado. Por ahora, llamémoslo myproject</p>
+<div class="hll"><pre><span></span><span class="n">mkdir</span> <span class="n">myproject</span>
+<span class="n">cd</span> <span class="n">myproject</span>
+</pre></div>
+<p><img src="https://user-images.githubusercontent.com/16352805/33792149-7f122bee-dc66-11e7-8d87-040a5b488fe9.png" alt="img12"></p>
+<p>La carpeta es el directorio de nivel más alto que almacena todos los archivos relacionados con nuestro proyecto Django, incluyendo el entorno virtual.</p>
+<p>Así que comencemos por crear nuestro primer entorno virtual e instalar Django
+Dentro de la carpeta myproject:</p>
+<div class="hll"><pre><span></span><span class="n">virtualenv</span> <span class="n">venv</span>
+</pre></div>
+<p><img src="https://user-images.githubusercontent.com/16352805/33792150-7f2e8320-dc66-11e7-9792-401e85b99ea6.png" alt="img13"></p>
+<p>Nuestro ambiente virtual fue creado, ahora antes de empezar a usarlo debemos activar: venv\Scripts\activate
+Sabrás que funcionó si puedes ver <em>(venv)</em> al inicio de la línea de comandos, así:</p>
+<p><img src="https://user-images.githubusercontent.com/16352805/33792151-7f4955d8-dc66-11e7-8e22-2251930df11e.png" alt="img14"></p>
+<p>Comencemos a entender que pasó: Creamos una carpeta especial llamada venv, esta contiene una copia de Python. Luego activamos el entorno venv y ejecutamos el comando Python, este usará</p>
+<p>Otra cosa muy importante es que el programa pip ya está instalado también, y cuando lo usemos para instalar un paquete de Python, como Django, este será instalado dentro del entorno</p>
+<p>Por cierto, para desactivar la ejecución de venv, ejecuta el siguiente comando:</p>
+<div class="hll"><pre><span></span><span class="n">venv</span>\<span class="n">Scripts</span>\<span class="n">deactivate</span><span class="o">.</span><span class="n">bat</span>
+</pre></div>
+<p>Pero mantengámoslo activo para los siguientes pasos.</p>
+<h2>Instalando Django 1.11.4</h2>
+<p>Ahora que tenemos venv activado, ejecuta el siguiente comando para instalar Django:</p>
+<div class="hll"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">django</span>
+</pre></div>
+<p><img src="https://user-images.githubusercontent.com/16352805/33792152-7f65535a-dc66-11e7-8494-5df88ea8fc83.png" alt="img15"></p>
+<p><strong>_¡Estamos listos!</strong>_</p>
+<p><img src="https://user-images.githubusercontent.com/16352805/33792153-7f80353a-dc66-11e7-8437-b86c33147487.png" alt="img16"></p>
+<h2>Comenzando un nuevo proyecto</h2>
+<p>Para comenzar un nuevo proyecto Django, ejecuta el siguiente comando: django-admin startproject myproject</p>
+<p>La utilidad de la línea de comandos django-admin se instala automáticamente con Django.</p>
+<p>Después de que ejecutamos el anterior comando, se genera la siguiente estructura de carpetas base para un proyecto Django.
+Ahora mismo, nuestro directorio myproject se ve así:</p>
+<div class="hll"><pre><span></span><span class="n">myproject</span><span class="o">/</span>                  <span class="o">&lt;--</span> <span class="n">carpeta</span> <span class="n">de</span> <span class="n">m</span><span class="err">á</span><span class="n">s</span> <span class="n">alto</span> <span class="n">nivel</span>
+ <span class="o">|--</span> <span class="n">myproject</span><span class="o">/</span>             <span class="o">&lt;--</span> <span class="n">carpeta</span> <span class="k">del</span> <span class="n">Proyecto</span> <span class="n">django</span>
+ <span class="o">|</span>    <span class="o">|--</span> <span class="n">myproject</span><span class="o">/</span>
+ <span class="o">|</span>    <span class="o">|</span>    <span class="o">|--</span> <span class="fm">__init__</span><span class="o">.</span><span class="n">py</span>
+ <span class="o">|</span>    <span class="o">|</span>    <span class="o">|--</span> <span class="n">settings</span><span class="o">.</span><span class="n">py</span>
+ <span class="o">|</span>    <span class="o">|</span>    <span class="o">|--</span> <span class="n">urls</span><span class="o">.</span><span class="n">py</span>
+ <span class="o">|</span>    <span class="o">|</span>    <span class="o">|--</span> <span class="n">wsgi</span><span class="o">.</span><span class="n">py</span>
+ <span class="o">|</span>    <span class="o">+--</span> <span class="n">manage</span><span class="o">.</span><span class="n">py</span>
+ <span class="o">+--</span> <span class="n">venv</span><span class="o">/</span>                  <span class="o">&lt;--</span> <span class="n">carpeta</span> <span class="k">del</span> <span class="n">entorno</span> <span class="n">virtual</span>
+</pre></div>
+<p>Nuestra estructura inicial del proyecto está compuesta por 5 archivos:</p>
+<ul>
+<li><strong>manage.py:</strong> Un atajo para usar la utilidad de línea de comando django-admin. Es usado para ejecutar comandos de administración relacionados con nuestro proyecto. Lo usaremos para ejecutar el desarrollo en servidos, pruebas, migraciones y muchos más.</li>
+<li><strong><em>init</em>.py</strong>: Este archivo vacío le dice a Python que esta carpeta es un paquete.</li>
+<li><strong>settings.py:</strong> Este archivo contiene la configuración de todo el proyecto. ¡Lo estaremos usando todo el tiempo!</li>
+<li><strong>urls.py:</strong> Este archivo es el responsable de mapear las rutas y caminos (paths) en nuestro proyecto. Por ejemplo, si quieres mostrar algo en la URL /about/, tienes que mapearlo aquí primero.</li>
+<li><strong>wsgi.py:</strong> Este archivo es simplemente una interfaz de puerta de enlace usada para despliegues. No debes preocuparte por él, déjalo así por ahora.</li>
+</ul>
+<p>Django viene con un servidor web simple instalado, lo que es muy conveniente durante el desarrollo porque no debemos instalar nada más para ejecutar el proyecto localmente. Podemos probarlo ejecutando el comando: python manage.py runserver</p>
+<p>Por ahora, puedes ignorar los errores de migración, llegaremos a eso luego.</p>
+<p>Ahora ve a la siguiente URL en un navegador Web: <a href="http://127.0.0.1:8000">http://127.0.0.1:8000</a> y deberías ver la siguiente página:</p>
+<p><img src="https://user-images.githubusercontent.com/16352805/33792153-7f80353a-dc66-11e7-8437-b86c33147487.png" alt="img16"></p>
+<p>Presiona <strong>CTRL + C</strong> para detener el servidor de desarrollo.</p>
+<h2>Django Apps</h2>
+<p>En la filosofía Django tenemos dos conceptos importantes:</p>
+<ul>
+<li><strong>Aplicación:</strong> es una aplicación web que hace algo. Una aplicación está compuesta usualmente por una serie de modelos (tablas de base de datos), vistas, plantillas y pruebas. </li>
+<li><strong>Proyecto:</strong> es una colección de configuraciones y aplicaciones. Un proyecto puede estar compuesto por una o múltiples aplicaciones.
+Es importante resaltar que no puedes ejecutar una aplicación Django sin un proyecto. Sitios web simples como un blog pueden ser escritos en su totalidad dentro de una sola aplicación, que podría llamarse blog o weblog por ejemplo.</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/16352805/33792154-7f9d9774-dc66-11e7-86aa-917f67741d95.png" alt="img17"></p>
+<p>Es una forma de organizar el código fuente, ya que al principio no es muy sencillo identificar que es una aplicación y que no lo es.</p>
+<p>¡Pero no te preocupes por eso ahora! Primero pongámonos cómodos con las API de Django y sus fundamentos.</p>
+<p>¡Listo! Entonces, para ilustrar vamos a crear un foro web simple o un tablero de discusión. Para crear nuestra primera aplicación, vamos al directorio donde está el archivo manage.py y ejecuta el siguiente comando: django-admin startapp boards
+Nota que esta vez usamos startapp.</p>
+<p>Esto nos da la siguiente estructura de directorios:</p>
+<div class="hll"><pre><span></span><span class="n">myproject</span><span class="o">/</span>
+ <span class="o">|--</span> <span class="n">myproject</span><span class="o">/</span>
+ <span class="o">|</span>    <span class="o">|--</span> <span class="n">boards</span><span class="o">/</span>              <span class="o">&lt;--</span> <span class="n">nuestra</span> <span class="n">nueva</span> <span class="n">aplicaci</span><span class="err">ó</span><span class="n">n</span> <span class="n">Django</span><span class="err">!</span>
+ <span class="o">|</span>    <span class="o">|</span>    <span class="o">|--</span> <span class="n">migrations</span><span class="o">/</span>
+ <span class="o">|</span>    <span class="o">|</span>    <span class="o">|</span>    <span class="o">+--</span> <span class="fm">__init__</span><span class="o">.</span><span class="n">py</span>
+ <span class="o">|</span>    <span class="o">|</span>    <span class="o">|--</span> <span class="fm">__init__</span><span class="o">.</span><span class="n">py</span>
+ <span class="o">|</span>    <span class="o">|</span>    <span class="o">|--</span> <span class="n">admin</span><span class="o">.</span><span class="n">py</span>
+ <span class="o">|</span>    <span class="o">|</span>    <span class="o">|--</span> <span class="n">apps</span><span class="o">.</span><span class="n">py</span>
+ <span class="o">|</span>    <span class="o">|</span>    <span class="o">|--</span> <span class="n">models</span><span class="o">.</span><span class="n">py</span>
+ <span class="o">|</span>    <span class="o">|</span>    <span class="o">|--</span> <span class="n">tests</span><span class="o">.</span><span class="n">py</span>
+ <span class="o">|</span>    <span class="o">|</span>    <span class="o">+--</span> <span class="n">views</span><span class="o">.</span><span class="n">py</span>
+ <span class="o">|</span>    <span class="o">|--</span> <span class="n">myproject</span><span class="o">/</span>
+ <span class="o">|</span>    <span class="o">|</span>    <span class="o">|--</span> <span class="fm">__init__</span><span class="o">.</span><span class="n">py</span>
+ <span class="o">|</span>    <span class="o">|</span>    <span class="o">|--</span> <span class="n">settings</span><span class="o">.</span><span class="n">py</span>
+ <span class="o">|</span>    <span class="o">|</span>    <span class="o">|--</span> <span class="n">urls</span><span class="o">.</span><span class="n">py</span>
+ <span class="o">|</span>    <span class="o">|</span>    <span class="o">|--</span> <span class="n">wsgi</span><span class="o">.</span><span class="n">py</span>
+ <span class="o">|</span>    <span class="o">+--</span> <span class="n">manage</span><span class="o">.</span><span class="n">py</span>
+ <span class="o">+--</span> <span class="n">venv</span><span class="o">/</span>
+</pre></div>
+<p>Exploremos que hace cada archivo:</p>
+<ul>
+<li><strong>migrations:</strong> aquí Django almacena algunos archivos para mantener el registro de los cambos que creas en el archivo models.py, para manteniéndolos sincronizados.</li>
+<li><strong>admin.py:</strong> este es un archivo de configuración para una aplicación compilada de Django llamada Django Admin. </li>
+<li><strong>apps.py:</strong> este es un archivo de configuración de la aplicación en cuestión.</li>
+<li><strong>models.py:</strong> aquí es donde definimos las entidades de nuestra aplicación web. Los modelos son traducidos automáticamente por Django a tablas de base de datos.</li>
+<li><strong>tests.py:</strong> este archivo es utilizado para escribir pruebas unitarias para la aplicación.</li>
+<li><strong>views.py:</strong> este es un archivo donde manejamos el ciclo de solicitudes/respuestas de nuestra aplicación web.
+Ahora que hemos creado nuestra primera aplicación, vamos a configurarla para usarla.</li>
+</ul>
+<p>Para hacer eso, abre settings.py e intenta encontrar la variable INSTALLED_APPS</p>
+<p><strong>Settings.py</strong></p>
+<div class="hll"><pre><span></span><span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;django.contrib.admin&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;django.contrib.auth&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;django.contrib.contenttypes&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;django.contrib.sessions&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;django.contrib.messages&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;django.contrib.staticfiles&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+<p>Como puedes ver, Django ya viene con 6 aplicaciones integradas. Ellas tienen común que ofrecen funcionalidades que la mayoría de las aplicaciones Web necesitan, como autenticación, sesiones, manejo de archivos estáticos (imágenes, javascripts, css, etc.) entre otras.
+Exploraremos estas aplicaciones a medida que progresemos en esta serie de tutoriales. Pero por ahora, dejémoslas y simplemente agreguemos boards a la lista:</p>
+<div class="hll"><pre><span></span><span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;django.contrib.admin&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;django.contrib.auth&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;django.contrib.contenttypes&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;django.contrib.sessions&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;django.contrib.messages&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;django.contrib.staticfiles&#39;</span><span class="p">,</span>
+
+    <span class="s1">&#39;boards&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+<p>Usando la analogía de los cuadros y círculos de la viñeta anterior, el circulo amarillo seria nuestra aplicación boards, y django.contrib.admin, django.contrib.auth, etc serían los círculos rojos.</p>
+<h2>Hola Mundo</h2>
+<p>Vamos a escribir nuestra primera vista, las exploraremos en detalle en el próximo tutorial, pero por ahora experimentemos como es crear una nueva página con Django.</p>
+<p>Abre el archivo views.py dentro de la aplicación boards, y añade el siguiente código:</p>
+<p><strong>Views.py</strong></p>
+<div class="hll"><pre><span></span><span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">HttpResponse</span>
+
+<span class="k">def</span> <span class="nf">home</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s1">&#39;Hello, World!&#39;</span><span class="p">)</span>
+</pre></div>
+<p>Las vistas son funciones Python que reciben un objeto HttpRequest y retornan un objeto HttpResponse, siendo el flujo que debes tener en mente siempre es recibir una solicitud como parámetro y retornar una respuesta como resultado.</p>
+<p>Aquí definimos una vista simple llamada home, la que simplemente retorna un mensaje diciendo Hello, World!</p>
+<p>Ahora tenemos que decirle a Django cuando servir esta vista, esto se hace dentro del archivo urls.py:</p>
+<p><strong>Urls.py</strong></p>
+<div class="hll"><pre><span></span><span class="kn">from</span> <span class="nn">django.conf.urls</span> <span class="kn">import</span> <span class="n">url</span>
+<span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
+
+<span class="kn">from</span> <span class="nn">boards</span> <span class="kn">import</span> <span class="n">views</span>
+
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">url</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;^$&#39;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">home</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;home&#39;</span><span class="p">),</span>
+    <span class="n">url</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;^admin/&#39;</span><span class="p">,</span> <span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">urls</span><span class="p">),</span>
+<span class="p">]</span>
+</pre></div>
+<p>Si comparas el código de arriba con tu archivo urls.py, notarás que añadí la siguiente línea: url(r'^$', views.home, name='home') e importé el módulos de vistas desde nuestra aplicación boards usando: from boards import views</p>
+<p>Como mencionaba, exploraremos esos conceptos en gran detalle más adelante,</p>
+<p>Pero por ahora, Django funiciona con expresiones regulares (regex) para identificar la URL solicitada. Para nuestra vista home, estoy usando el regex ^$ , el cual identificará una ruta vacía que es nuestra página principal (esta url: <a href="http://127.0.0.1:8000">http://127.0.0.1:8000</a>). Si quisiera identificar la URL [<a href="http://127.0.0.1:8000/homepage/">http://127.0.0.1:8000/homepage/</a>], mi url seria: url(r'^homepage/$', views.home, name='home')</p>
+<p>Veamos que pasa:</p>
+<div class="hll"><pre><span></span><span class="n">python</span> <span class="n">manage</span><span class="o">.</span><span class="n">py</span> <span class="n">runserver</span>
+</pre></div>
+<p><img src="https://user-images.githubusercontent.com/16352805/33792155-7fbba1ec-dc66-11e7-9165-5ed8d1db9127.png" alt="img18"></p>
+<p>¡Eso es! Has creado tu primera vista.</p>
+<h2>Conclusiones</h2>
+<p>Esa fue la primera parte de esta serie de tutoriales, En este aprendimos como instalar la última versión de Python y como configurar el ambiente de desarrollo. También tuvimos una introducción a entornos virtuales y empezamos nuestro primer proyecto Django y ya creamos nuestra aplicación inicial.</p>
+<p>El código se encuentra en el siguiente repositorio: <a href="https://github.com/sibtc/django-beginners-guide/tree/v0.1-lw">https://github.com/sibtc/django-beginners-guide/tree/v0.1-lw</a></p>
+<p>Traducido de <a href="https://simpleisbetterthancomplex.com/series/2017/09/04/a-complete-beginners-guide-to-django-part-1.html">https://simpleisbetterthancomplex.com/series/2017/09/04/a-complete-beginners-guide-to-django-part-1.html</a></p>
+
+          <div class="comments">
+<div id="disqus_thread"></div>
+<script>
+  var disqus_config = function() { this.page.identifier = "/blog/una-guia-completa-de-django-para-principiantes-parte-1"; this.page.url = "http://pybaq.co/blog/una-guia-completa-de-django-para-principiantes-parte-1/"; };
+  (function() {
+    var d = document, s = d.createElement('script');
+    s.src = '//python-barranquilla.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>
+  Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript"
+    rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <footer class="dq-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4">
+          <h4>Sobre Nosotros</h4>
+          <div class="hline-w"></div>
+          <p>Python Barranquilla es una comunidad para todos los interesados en desarrollar aplicaciones en Python dentro de la ciudad de Barranquilla. </p>
+        </div>
+        <div class="col-lg-4">
+          <h4>Redes sociales</h4>
+          <div class="hline-w"></div>
+          <p>
+            <a href="https://github.com/PyBAQ"><i class="fa fa-github"></i></a>
+            <a href="https://www.facebook.com/pybaq/"><i class="fa fa-facebook"></i></a>
+            <a href="http://twitter.com/pybaq"><i class="fa fa-twitter"></i></a>
+            <a href="https://django-python-quilla.slack.com/signup"><i class="fa fa-slack"></i></a>
+            <a href="https://www.instagram.com/pybaq"><i class="fa fa-instagram"></i></a>
+            <a href="https://www.meetup.com/pythonbaq/"><img src="/img/meetup.png" class="meetup-icon"></a>
+          </p>
+        </div>
+        <div class="col-lg-4">
+          <h4>Nuestra Ubicación</h4>
+          <div class="hline-w"></div>
+          <p>
+            Barranquilla, Colombia.<br/>
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="../../js/bootstrap.min.js"></script>
+  <script src="../../js/retina-1.1.0.js"></script>
+  <script src="../../js/jquery.hoverdir.js"></script>
+  <script src="../../js/jquery.hoverex.min.js"></script>
+  <script src="../../js/jquery.prettyPhoto.js"></script>
+  <script src="../../js/jquery.isotope.min.js"></script>
+  <script src="../../js/custom.js"></script>
+
+    <script>
+// Portfolio
+(function($) {
+  "use strict";
+  var $container = $('.portfolio'),
+    $items = $container.find('.portfolio-item'),
+    portfolioLayout = 'fitRows';
+    
+    if( $container.hasClass('portfolio-centered') ) {
+      portfolioLayout = 'masonry';
+    }
+        
+    $container.isotope({
+      filter: '*',
+      animationEngine: 'best-available',
+      layoutMode: portfolioLayout,
+      animationOptions: {
+      duration: 750,
+      easing: 'linear',
+      queue: false
+    },
+    masonry: {
+    }
+    }, refreshWaypoints());
+    
+    function refreshWaypoints() {
+      setTimeout(function() {
+      }, 1000);   
+    }
+        
+    $('nav.portfolio-filter ul a').on('click', function() {
+        var selector = $(this).attr('data-filter');
+        $container.isotope({ filter: selector }, refreshWaypoints());
+        $('nav.portfolio-filter ul a').removeClass('active');
+        $(this).addClass('active');
+        return false;
+    });
+    
+    function getColumnNumber() { 
+      var winWidth = $(window).width(), 
+      columnNumber = 1;
+    
+      if (winWidth > 1200) {
+        columnNumber = 5;
+      } else if (winWidth > 950) {
+        columnNumber = 4;
+      } else if (winWidth > 600) {
+        columnNumber = 3;
+      } else if (winWidth > 400) {
+        columnNumber = 2;
+      } else if (winWidth > 250) {
+        columnNumber = 1;
+      }
+        return columnNumber;
+      }       
+      
+      function setColumns() {
+        var winWidth = $(window).width(), 
+        columnNumber = getColumnNumber(), 
+        itemWidth = Math.floor(winWidth / columnNumber);
+        
+        $container.find('.portfolio-item').each(function() { 
+          $(this).css( { 
+          width : itemWidth + 'px' 
+        });
+      });
+    }
+    
+    function setPortfolio() { 
+      setColumns();
+      $container.isotope('reLayout');
+    }
+      
+    $container.imagesLoaded(function () { 
+      setPortfolio();
+    });
+    
+    $(window).on('resize', function () { 
+      setPortfolio();          
+    });
+
+		$('#body-content').children().children().each(function(index, tag) {
+      var url = ($(tag).attr('href') != undefined) ? $(tag).attr('href').toLowerCase() : "";
+      if (url.indexOf("pybaq.co") >= 0) {
+			  if (tag.tagName == 'A') { $(tag).attr('target', '_blank'); }
+      }
+		});
+})(jQuery);
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-102964527-1', 'auto');
+  ga('send', 'pageview');
+</script>
+  </body>
+</html>
+
+
+
+ 
