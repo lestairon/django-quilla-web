@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="shortcut icon" href="../../ico/favicon.png">
+  <title>Reconocimiento de rostros en una microcomputadora </title>
+<link rel="stylesheet" href="../../static/gen/styles.css?h=649735d7">
+  <!--<link rel="stylesheet" href="../../static/gen/styles.css?h=649735d7">
+  <!-- Just for debugging purposes. Don't actually copy this line! -->
+  <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../">
+          <img class="navbar-logo" src="../../img/pybaq-logo.png">
+        </a>
+      </div>
+      
+      <div class="navbar-collapse collapse navbar-right">
+        <ul class="nav navbar-nav">
+          <li><a href="../../">INICIO</a></li>
+          
+            <li><a href="../../about/">NOSOTROS</a></li>
+          
+            <li class="active"><a href="../../blog/">BLOG</a></li>
+          
+            <li><a href="../../eventos/">EVENTOS</a></li>
+          
+            <li><a href="../../contact/">CONTACTO</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div style="height: 70px"></div>
+  
+<div id="blue">
+    <div class="container">
+      <div class="row">
+        <h3>Artículo</h3>
+      </div>
+    </div>
+</div>
+<div class="container mtb">
+  <div class="row">
+    <div class="col-lg-8">
+      <div class="post-meta">
+        
+            <p><img class="img-responsive" src="../../blog/reconomiento-rostros/foto-del-publico.jpeg"></p>
+          
+        <h3 class="ctitle">Reconocimiento de rostros en una microcomputadora</h3>
+        <csmall>Escrito: 2017-08-22.</csmall> | <csmall2>
+        por: 
+          <a href="https://twitter.com/GudarJs" target="_blank">
+            Guzmán D. Darío
+          </a>
+        </csmall2>
+      </div>
+      <div>
+          <p>¡Hola Pythonista!, soy Darío Guzmán, co-organizador de Python Barranquilla y en esta ocasión quiero contarte acerca de la charla realizada por el Ing. Edgar Flórez CEO de la empresa <a href="http://ebenezertechs.com/">Ebenezer Technologies</a> experta en aplicar técnicas de visión por computadora.</p>
+<p>En este artículo tendrás la oportunidad de aprender cuales son los conceptos necesarios para detectar y reconocer rostros con una microcomputadora.</p>
+<h2>¿Que veremos hoy?</h2>
+<ul>
+<li>¿Que es una microcomputadora?</li>
+<li>¿Cómo detectar un rostro?</li>
+<li>¿Cómo reconocer un rostro?</li>
+</ul>
+<h2>¿Que es una microcomputadora?</h2>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Raspberry-Pi-3-Flat-Top.jpg" alt="Imagen de raspberry pi" title="Raspberry PI"></p>
+<p>Una microcomputadora es un computador pequeño muy parecido a tu teléfono móvil o tablet, en aspectos técnicos tiene un procesador, una memoria ram y diferentes accesorios dependiendo de la microcomputadora que estés usando, como por ejemplo un módulo para wi-fi o un módulo de almacenamiento interno.</p>
+<h3>¿Por qué y cuándo usar una microcomputadora?</h3>
+<p>Debido a su reducido tamaño y poder son ideales para usarlas en proyectos donde no se cuente con mucho espacio como por ejemplo crear un centro multimedia para reproducir tus vídeos, música e imágenes y verlas desde tus dispositivos (¡Cómo Netflix, y Spotify juntos pero en tu casa!) Aquí te dejo <a href="https://m.xataka.com/accesorios/las-13-mejores-ideas-que-hemos-encontrado-hechas-con-raspberry-pi/amp">13 ideas realizadas con Raspberry Pi.</a></p>
+<h3>Modelos de microcomputadoras</h3>
+<p>En el mercado hay disponibles diferentes opciones que nos brindan prestaciones para varios tipos de proyectos, entre los modelos más conocidos se encuentran la Raspberry Pi y las odroid (esta última fue la usada en la charla).</p>
+<h2>¿Cómo detectar un rostro?</h2>
+<p><img src="https://c1.staticflickr.com/7/6047/6884354914_0ed3b326c0_b.jpg" alt="Ejemplo de Haar cascade" title="Haar Cascade"></p>
+<p>Primero hay que diferenciar el detectar un rostro de reconocerlo, en la detección se busca identificar si en una imagen existe o no un rostro, mientras que en el reconocimiento lo que se intenta es identificar la identidad de una persona en específico.</p>
+<p>Por ahora debes saber que para detectar un rostro se usa el método haar cascade el cual consiste en repasar la imagen buscando un grupo de características o (features) en dicha imagen, no te preocupes si tienes alguna duda adelante lo explicaré más detallado.</p>
+<h3>¿Cómo interpreta las imágenes una computadora?</h3>
+<p>Pero antes de explicarte un poco más a fondo cómo funciona el método haar cascade me gustaría que entendieras la forma en la que una computadora "ve" lo que nosotros conocemos como imagen.</p>
+<p>Seguramente en algún lado has escuchado que la resolución de las imágenes y videos se mide en píxeles, bueno para una computadora tus fotos de las vacaciones, cumpleaños, etc. Son solo eso píxeles, estos están organizados en un vector con un número de columnas y filas determinadas por su ancho y alto, por ejemplo una imagen full HD tiene una resolución de 1920 x 1080 píxeles, en este caso el vector que representa la imagen tendría 1920 columnas y 1080 filas.</p>
+<p>Además para que las imágenes tengan color una computadora debe crear 3 vectores uno para cada canal de color RGB (Rojo, Verde y Azul) por lo que al final terminamos con un vector que contiene 3 vectores dentro cada uno con un canal de color.</p>
+<p>Ahora que sabes cómo interpreta las máquinas una imagen, quiero que imagenes por un momento tener que hacer una operación (multiplicación, adición, etc.) de tres vectores de 1920 columnas y 1080 filas, esto 30 veces por segundo (recuerda que trabajamos con video en ¡tiempo real!).</p>
+<p>Si se te explota la cabeza con solo pensarlo tranquilo es normal y es que para una computadora tampoco es tarea fácil, por este motivo vamos a cambiar el tamaño de la imagen a 320 x 240 y a reemplazar los tres canales RGB por escala de grises, así solo tendremos 1 vector de 320 columnas y 240 filas algo mucho más aceptable para la microcomputadora que estamos usando.</p>
+<h3>¿Cómo funciona el método haar cascade?</h3>
+<p>Como te explicaba antes lo que vamos a hacer es recorrer la imagen en busca de características, pero primero ¿A que me refiero con una característica?</p>
+<p>Las características son los patrones que están presentes en el objeto que intentamos detectar, como por ejemplo la distancia que hay entre los ojos, nariz y boca, la cantidad de luz que ilumina la frente, etc.</p>
+<p>Vale perfecto, pero... ¿cómo es que una computadora sabe cuales son las características que estamos buscando?</p>
+<p>Aquí viene lo interesante, la computadora no lo sabe, nosotros como programadores debemos darle un modelo de características y entrenar este modelo con varias imágenes, entre las cuales algunas deben tener rostros y otras no, para enseñarle a la computadora lo que es un rostro y lo que no.</p>
+<p>*Nota: Por simplicidad el modelo que se uso viene dado por opencv, pero es posible crear uno propio.</p>
+<p>Una vez entrenado el modelo, podremos recorrer la imagen en busca de las características definidas en él.</p>
+<h3>Ejemplo de haar cascade</h3>
+<p><a href="http://www.youtube.com/watch?v=hPCTwxF0qf4"><img src="http://img.youtube.com/vi/hPCTwxF0qf4/0.jpg" alt="Video mostrando ejemplo de haar cascade"></a></p>
+<blockquote><p>¿Notas como se vuelve un poco más lento cuando se acerca al rostro? eso es porque el algoritmo es muy eficiente y si no detecta ninguna de las características simplemente se mueve a otro lado.</p>
+</blockquote>
+<h2>¿Cómo reconocer un rostro?</h2>
+<p><img src="http://correspondencias.fotocolectania.org/wp-content/uploads/2016/06/eigfaces-Kember-1024x692.png" alt="Ejemplo de eigenfaces" title="Eigenfaces"></p>
+<p>Ahora eres capaz de detectar si en una imagen hay un rostro, ¿Pero y si quisieras ir más allá y saber a quién pertenece?</p>
+<p>Para esto lo primero que debes hacer es etiquetar las imágenes de muestra que usaste para entrenar el modelo. Esto se hace para una vez detectado algún rostro lo puedas comparar con los demás y mostrar el nombre de la persona a la que se parece más.</p>
+<p>ok, pero ¿Cómo comparo dos rostros?</p>
+<p>Calma, ya podrás comparar dos rostros una vez entiendas que son los eigenfaces y los eigenvectors.</p>
+<h3>Eigenvectors y Eigenfaces</h3>
+<p>Los eigenvectors son vectores en los que se guardan las características de un rostro.<br>
+Los eigenfaces por su parte son el conjunto de eigenvectors que hacen referencia al mismo rostro</p>
+<p>Los conceptos anteriores son importantes, debido a que el cálculo para comparar rostro detectado con los de nuestra base de datos sigue siendo muy costoso para nuestra microcomputadora, por esto lo que haremos será extraer sus eigenvectors y luego agruparlos en eigenfaces.</p>
+<p>Esto que te acabo de mencionar quiere decir 2 cosas, la primera es que cada rostro será convertido en un eigenface y la segunda es que no vamos a comparar los rostros en sí mismos, sino sus eigenfaces.</p>
+<h3>Comparando rostros</h3>
+<p>Para saber de quien es rostro que detectaste debes restar la distancia entre su eigenface, con cada uno de los eigenfaces extraídos de los rostros en la base de datos.</p>
+<p>La distancia entre los vectores predice la probabilidad de que dos rostros sean de la misma persona.</p>
+<p>*Nota: Entre más corta sea la distancia entre dos eigenfaces hay más posibilidad de que se trate de la misma persona.</p>
+<p>Para terminar solo debes tomar la etiqueta que pusiste al rostro en el entrenamiento y mostrarla en pantalla.</p>
+<p>Espero hayas disfrutado leyendo este artículo, si tienes dudas u opiniones sobre el tema, estaré aquí abajo (en los comentarios) para ayudarte.
+No olvides compartir este artículo con tus amigos interesados en la programación.</p>
+<blockquote><p>Recuerda que puedes descargar el código de la charla desde el <a href="https://github.com/efflorez/facerecognition">repositorio en github</a> y asi interactues con el.</p>
+</blockquote>
+<h2>Referencias</h2>
+<p>Si quieres profundizar un poco más en el tema, te dejo las fuentes en las que está basado este artículo.</p>
+<ol>
+<li><a href="http://docs.opencv.org/trunk/d7/d8b/tutorial_py_face_detection.html">Detección de rostros con opencv.</a></li>
+<li><a href="http://docs.opencv.org/2.4/modules/contrib/doc/facerec/facerec_tutorial.html#introduction">Reconocimiento de rostros con opencv.</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Eigenvalues_and_eigenvectors#Eigenfaces">Eigenfaces y eigenvectors.</a></li>
+</ol>
+
+          <div class="comments">
+<div id="disqus_thread"></div>
+<script>
+  var disqus_config = function() { this.page.identifier = "/blog/reconomiento-rostros"; };
+  (function() {
+    var d = document, s = d.createElement('script');
+    s.src = '//python-barranquilla.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>
+  Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript"
+    rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <footer class="dq-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4">
+          <h4>Sobre Nosotros</h4>
+          <div class="hline-w"></div>
+          <p>Python Barranquilla es una comunidad para todos los interesados en desarrollar aplicaciones en Python dentro de la ciudad de Barranquilla. </p>
+        </div>
+        <div class="col-lg-4">
+          <h4>Redes sociales</h4>
+          <div class="hline-w"></div>
+          <p>
+            <a href="https://github.com/PyBAQ"><i class="fa fa-github"></i></a>
+            <a href="https://www.facebook.com/pybaq/"><i class="fa fa-facebook"></i></a>
+            <a href="http://twitter.com/pybaq"><i class="fa fa-twitter"></i></a>
+            <a href="https://django-python-quilla.slack.com/signup"><i class="fa fa-slack"></i></a>
+            <a href="https://www.meetup.com/pythonbaq/"><img src="/img/meetup.png" class="meetup-icon"></a>
+          </p>
+        </div>
+        <div class="col-lg-4">
+          <h4>Nuestra Ubicación</h4>
+          <div class="hline-w"></div>
+          <p>
+            Barranquilla, Colombia.<br/>
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="../../js/bootstrap.min.js"></script>
+  <script src="../../js/retina-1.1.0.js"></script>
+  <script src="../../js/jquery.hoverdir.js"></script>
+  <script src="../../js/jquery.hoverex.min.js"></script>
+  <script src="../../js/jquery.prettyPhoto.js"></script>
+  <script src="../../js/jquery.isotope.min.js"></script>
+  <script src="../../js/custom.js"></script>
+
+    <script>
+// Portfolio
+(function($) {
+  "use strict";
+  var $container = $('.portfolio'),
+    $items = $container.find('.portfolio-item'),
+    portfolioLayout = 'fitRows';
+    
+    if( $container.hasClass('portfolio-centered') ) {
+      portfolioLayout = 'masonry';
+    }
+        
+    $container.isotope({
+      filter: '*',
+      animationEngine: 'best-available',
+      layoutMode: portfolioLayout,
+      animationOptions: {
+      duration: 750,
+      easing: 'linear',
+      queue: false
+    },
+    masonry: {
+    }
+    }, refreshWaypoints());
+    
+    function refreshWaypoints() {
+      setTimeout(function() {
+      }, 1000);   
+    }
+        
+    $('nav.portfolio-filter ul a').on('click', function() {
+        var selector = $(this).attr('data-filter');
+        $container.isotope({ filter: selector }, refreshWaypoints());
+        $('nav.portfolio-filter ul a').removeClass('active');
+        $(this).addClass('active');
+        return false;
+    });
+    
+    function getColumnNumber() { 
+      var winWidth = $(window).width(), 
+      columnNumber = 1;
+    
+      if (winWidth > 1200) {
+        columnNumber = 5;
+      } else if (winWidth > 950) {
+        columnNumber = 4;
+      } else if (winWidth > 600) {
+        columnNumber = 3;
+      } else if (winWidth > 400) {
+        columnNumber = 2;
+      } else if (winWidth > 250) {
+        columnNumber = 1;
+      }
+        return columnNumber;
+      }       
+      
+      function setColumns() {
+        var winWidth = $(window).width(), 
+        columnNumber = getColumnNumber(), 
+        itemWidth = Math.floor(winWidth / columnNumber);
+        
+        $container.find('.portfolio-item').each(function() { 
+          $(this).css( { 
+          width : itemWidth + 'px' 
+        });
+      });
+    }
+    
+    function setPortfolio() { 
+      setColumns();
+      $container.isotope('reLayout');
+    }
+      
+    $container.imagesLoaded(function () { 
+      setPortfolio();
+    });
+    
+    $(window).on('resize', function () { 
+    setPortfolio();          
+  });
+})(jQuery);
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-102964527-1', 'auto');
+  ga('send', 'pageview');
+</script>
+  </body>
+</html>
+
+
+
+ 
