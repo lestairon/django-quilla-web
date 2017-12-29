@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="../../ico/favicon.png">
+  <title>Primeros pasos en Python </title>
+  <link rel="stylesheet" href="../../static/gen/styles.css?h=0d5dda05">
+  <!--<link rel="stylesheet" href="../../static/gen/styles.css?h=0d5dda05">
+  <!-- Just for debugging purposes. Don't actually copy this line! -->
+  <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@pybaq" />
+  <meta name="twitter:creator" content="@andresperezcera" />
+  <meta name="description" content="En todas las cosas de tu visa hay un inicio, ese instante en que algo digno de contar nace en tu memoria. Concédenos el privilegio de ser ese inicio en tu historia de python..">
+  <meta name="author" content="Python Barranquilla">
+  <meta property="og:title" content="Primeros pasos en Python" />
+  <meta property="og:type" content="article" />
+  <meta property="og:description" content="En todas las cosas de tu visa hay un inicio, ese instante en que algo digno de contar nace en tu memoria. Concédenos el privilegio de ser ese inicio en tu historia de python." />
+  
+    <meta property="og:image" content="http://pybaq.co/blog/primeros-pasos-en-python/primeros-pasos.png}" />
+  
+  <meta property="og:url" content="http://pybaq.co/blog/primeros-pasos-en-python/" />
+  <meta property="og:site_name" content="http://pybaq.co/" />
+
+</head>
+
+<body>
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../">
+          <img class="navbar-logo" src="../../img/pybaq-logo.png">
+        </a>
+      </div>
+      <div class="navbar-collapse collapse navbar-right">
+        <ul class="nav navbar-nav">
+          <li><a href="../../">INICIO</a></li>
+          
+            <li><a href="../../about/">NOSOTROS</a></li>
+          
+            <li class="active"><a href="../../blog/">BLOG</a></li>
+          
+            <li><a href="../../eventos/">EVENTOS</a></li>
+          
+            <li><a href="../../contact/">CONTACTO</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div style="height: 70px"></div>
+  
+<div id="blue">
+    <div class="container">
+      <div class="row">
+        <h3>Artículo</h3>
+      </div>
+    </div>
+</div>
+<div class="container mtb">
+  <div class="row">
+    <div class="col-lg-8">
+      <div class="post-meta blog_post-post_meta">
+        
+            <p><img class="img-responsive" src="../../blog/primeros-pasos-en-python/primeros-pasos.png"></p>
+          
+        <h1 class="ctitle">Primeros pasos en Python</h1>
+        <csmall>Escrito: 2017-12-29.</csmall> | <csmall2>
+        por: 
+          <a href="https://twitter.com/andresperezcera" target="_blank">
+            Andres Perez
+          </a>
+        </csmall2>
+      </div>
+      <div id="body-content" class="blog_post-body">
+          <blockquote><p>Algún inicio debe haber en todas las cosas.</p>
+<p>Anónimo.</p>
+</blockquote>
+<h2>Una definición</h2>
+<p>Python es un lenguaje de programación interpretado cuya filosofía hace hincapié en una sintaxis que favorezca un código legible. Su popularidad ha crecido constantemente y en la actualidad es uno de los lenguajes de programación más populares en el desarrollo de software.</p>
+<p>Se trata de un lenguaje de programación multiparadigma [1], ya que soporta orientación a objetos, programación imperativa y, en menor medida pero ganando acogida desde el año 2015, programación funcional. Es un lenguaje interpretado, usa tipado dinámico y es multiplataforma.</p>
+<p>Es administrado por la <a href="https://www.python.org/">Python Software Foundation</a>. Posee una licencia de código abierto, denominada Python Software Foundation License que es compatible con la Licencia pública general de GNU a partir de la versión 2.1.1.[2]</p>
+<h2>Un motivo</h2>
+<blockquote><p><img src="../../img/posts/primeros-pasos/python.png" alt="Motivos hay muchos"></p>
+<p>es.xkcd.com/strips/python/</p>
+</blockquote>
+<p>Hay muchas razones para elegir python como tu lenguaje de desarrollo. Entre las principales razones para elegir Python está que su principal característica lo convierte en un lenguaje muy productivo:</p>
+<ul>
+<li>Se trata de un lenguaje potente, flexible y con una sintaxis clara y concisa. Además, no requiere dedicar tiempo a su compilación debido a que es interpretado.</li>
+<li>Es open source; cualquiera puede contribuir a su desarrollo y divulgación. Además, no es necesario pagar ninguna licencia para distribuir software desarrollado con esté lenguaje. Hasta su intérprete se distribuye de forma gratuita para diferentes plataformas.</li>
+<li>Plataformas de desarrollo electronicas usan como <a href="http://www.toptechboy.com/using-python-with-arduino-lessons/">Arduino</a> y <a href="https://www.raspberrypi.org/documentation/usage/python/">Raspberry Pi</a> usan python como lenguaje de interfaz entre el software (prorama) y el hardware (dispositivo).</li>
+</ul>
+<p>al escribir este articulo las versiones disponibles son las 2.7.14 y las 3.6.4, se recomienda usar en lo posible la version 3.6.x ya que la version 2.7.x dejara de tener soporte en el 2020</p>
+<h2>Pero entonces ¿que hago?</h2>
+<blockquote><p><img src="../../img/posts/primeros-pasos/footsteps.jpg" alt="Pasos a seguir"></p>
+</blockquote>
+<p>Necesitas seguir 3 pasos para estar listo para aprender python:</p>
+<ol>
+<li>Instala python</li>
+<li>Instala un editor de texto o IDE</li>
+<li>Decide tu proyecto.</li>
+</ol>
+<h3>Primero, Instala python</h3>
+<p>Perdona que te desvíe un poco, pero antes de instalar debes saber que hay varias distribuciones de python. Es decir, como es un lenguaje de codigo abierto, grupos con la noción suficiente puede sacar una versión nueva y distinguirla de las demás en alguna manera. Aparte de la versión <a href="https://www.python.org/downloads/"><em>oficial</em></a>, existen distribuciones de python como <a href="https://www.enthought.com/product/enthought-python-distribution/"><em>enthought</em></a> antes conocido como  canopy, y <a href="https://www.anaconda.com/what-is-anaconda/"><em>Anaconda</em></a>.</p>
+<p>A pesar de saber esto, te recomendamos instalar la distribución <a href="https://www.python.org/downloads/"><em>oficial</em></a> y despues migrar a alguna de las demás será pan comido. Para instalar puedes seguir alguno de estos tutoriales:</p>
+<ul>
+<li><a href="https://tutorial.djangogirls.org/es/python_installation/">Djangogirls (español)</a>.</li>
+<li><a href="https://learnpythonthehardway.org/python3/ex0.html">Learn Python the Hard Way-The Setup (Inglés)</a></li>
+<li><a href="http://www.diveintopython3.net/installing-python.html">Dive Into Python 3-Installing Python (Inglés)</a></li>
+</ul>
+<h3>Segundo, Instala un editor ed texto</h3>
+<p>Necesitar un editor de texto expecialmente creado para editar archivos de código.</p>
+<ul>
+<li><a href="https://www.sublimetext.com/">SublimeText</a></li>
+<li><a href="https://atom.io/">Atom</a></li>
+<li><a href="https://code.visualstudio.com/">VisualStudio Code</a></li>
+<li>...</li>
+</ul>
+<p>También existen editores especiales llamados IDE (Integrated Development Environment o entorno de desarrollo integrado). Estos abarcan o encierran en una unica aplicación muchos componentes excepcionalmente útiles en el desarrollo de aplicaciones. Por ejemplo, verificaciones como aquellas de estilo estipuladas en <a href="https://www.python.org/dev/peps/pep-0008/">PEP 8</a>,[3] pueden ser verificadas de manera activa en la mayoría de las IDE. Algunos ejemplos:</p>
+<ul>
+<li><a href="https://www.jetbrains.com/pycharm/">Pycharm</a> Este le gana a los demás.</li>
+<li><a href="http://www.pydev.org/">Eclipse con PyDev</a></li>
+<li><a href="https://eric-ide.python-projects.org/">Eric</a></li>
+</ul>
+<h3>Tercero, decide que hacer</h3>
+<p>Una parte esencial de aprender cualquier lenguaje de programación es saber para qué lo quieres. Usualmente quienes escriben estos articulos &mdash;sobretodo en una comunidad de python&mdash; pasan por alto a los curiosos, aquellos que no tienen ningún motivo en particular para aprender, pero que su corazón los llama a jugar con la idea. A ustedes les escribo, rogando que lo tomen de la mejor manera: ¡Busquen oficio! ¡No es grosería! Sin un objetivo pueden desanimarse, puesto que el corazón no es tan constante como la mente &mdash;lo escribo sin intención de continuar esa discusión filosófico-espiritual.</p>
+<p>Los proyectos abajo descritos son un camino <em>sugerido</em> de aprendizaje. Si terminas alguno sirvete de compartir con la comunidad lo que has logrado. No hay tarea simple en el aprendizaje. La <a href="https://docs.google.com/document/d/1TyqD2_oDtiQIh_Y55J5RfeA91JJECc97xYIKM112H9I/edit">lista</a> provista de proyectos está en inglés (como casi todo en el mundo de la programación) y fue tomada de un <a href="https://www.reddit.com/r/learnprogramming/comments/6j6jdj/beginner_python_projects/?st=jbr1p1a3&amp;sh=6dc1d314">post en Reddit</a> &mdash;están ordenados de menor a mayor complejidad.</p>
+<ul>
+<li><a href="http://www.reddit.com/r/beginnerprojects/comments/19kxre/project_99_bottles_of_beer_on_the_wall_lyrics/"><em>99 Bottles of Beer on the Wall Lyrics</em></a></li>
+<li><a href="http://www.reddit.com/r/beginnerprojects/comments/29aqox/project_magic_8_ball/"><em>Magic 8 Ball</em></a></li>
+<li><a href="http://www.reddit.com/r/beginnerprojects/comments/19jwi6/project_pythagorean_triples_checker/"><em>Pythagorean Triples Checker</em></a></li>
+<li><a href="http://www.reddit.com/r/beginnerprojects/comments/1idqw1/project_coin_estimator_by_weight/"><em>Coin Estimator By Weight</em></a></li>
+<li><a href="http://www.reddit.com/r/beginnerprojects/comments/1i8vt5/project_mad_libs_story_maker/"><em>Mad Libs Story Maker</em></a></li>
+<li><a href="http://www.reddit.com/r/beginnerprojects/comments/19jkn8/project_change_calculator/"><em>Change Calculator</em></a></li>
+<li><a href="http://www.reddit.com/r/beginnerprojects/comments/1eqt8i/function_mean_median_and_mode/"><em>Mean, Median, and Mode</em></a></li>
+<li><a href="http://www.reddit.com/r/beginnerprojects/comments/19jj9a/project_higherlower_guessing_game/"><em>Higher Lower Guessing Game</em></a></li>
+<li><a href="http://www.reddit.com/r/beginnerprojects/comments/2agwnq/project_multiplication_table/"><em>Multiplication Table</em></a></li>
+<li><a href="http://www.reddit.com/r/beginnerprojects/comments/19r3qg/functionfibonacci_sequence/"><em>Fibonacci Sequence</em></a></li>
+<li><a href="http://www.reddit.com/r/beginnerprojects/comments/1irw2j/project_hangman_game/"><em>Hangman Game</em></a></li>
+<li><a href="http://www.reddit.com/r/beginnerprojects/comments/1bytu5/projectmenu_calculator/"><em>Menu Calculator</em></a></li>
+<li><a href="http://www.reddit.com/r/beginnerprojects/comments/1j50e7/project_dice_rolling_simulator/"><em>Dice Rolling Simulator</em></a></li>
+<li><a href="http://www.reddit.com/r/beginnerprojects/comments/2aaeou/projectcreate_a_dice_simulator/"><em>Creating a Dice Simulator</em></a></li>
+<li><a href="http://www.reddit.com/r/beginnerprojects/comments/1i6sax/challenge_count_and_fix_green_eggs_and_ham/"><em>Count and Fix Green Eggs and Ham</em></a></li>
+<li><a href="http://www.reddit.com/r/beginnerprojects/comments/1dbena/challenge_whats_my_number/"><em>What’s My Number?</em></a></li>
+<li><a href="http://www.reddit.com/r/beginnerprojects/comments/1a0d82/function_factors_of_a_number/"><em>Factors of a Number</em></a></li>
+<li><a href="http://www.reddit.com/r/beginnerprojects/comments/1bvdmq/project_countdown_clock/"><em>Countdown Clock</em></a></li>
+<li><a href="http://www.reddit.com/r/beginnerprojects/comments/1aw0iq/project_turn_based_pokemon_style_game/"><em>Turn Based Pokemon Style Game</em></a></li>
+<li><a href="http://www.reddit.com/r/beginnerprojects/comments/19ot36/project_a_variation_of_21/"><em>A Variation of 21</em></a></li>
+<li><a href="http://www.reddit.com/r/beginnerprojects/comments/1i951e/project_compare_recent_karma/"><em>Compare Recent Karma</em></a></li>
+<li><a href="http://www.reddit.com/r/beginnerprojects/comments/1iqg6p/project_watch_for_new_til_facts/"><em>Watch for new TIL facts</em></a></li>
+<li><a href="http://www.reddit.com/r/beginnerprojects/comments/1jg2ru/project_random_wikipedia_article/"><em>Random Wikipedia Article</em></a></li>
+<li><a href="http://www.reddit.com/r/beginnerprojects/comments/1dzbu7/project_whats_the_weather/"><em>What’s the Weather?</em></a></li>
+</ul>
+<h2>Buscad conocimiento, tanto por estudio como por el hobby</h2>
+<p>A continuacion se eccontrarás una lista de recursos para el aprendizaje, algunos en Python 2 otros en 3:</p>
+<ul>
+<li><a href="http://docs.python.org.ar/tutorial/">Tutorial de python por Argentina en python </a></li>
+<li><a href="https://pythonista.mx/cursos/py101">Pythonista.mx</a></li>
+<li><a href="https://www.codecademy.com/learn/learn-python">Codecademy's Python</a></li>
+<li><a href="https://openlibra.com/es/collection/search/term/python/">https://openlibra.com</a></li>
+<li><a href="https://www.learnpython.org/">Learn Python Website</a></li>
+<li><a href="http://python.net/~goodger/projects/pycon/2007/idiomatic/handout.html">Code Like a Pythonista</a></li>
+<li><a href="http://pythonbooks.org/for-programming-beginners/">Python Books Website</a></li>
+<li><a href="http://pythonforengineers.com/python-for-scientists-and-engineers/">Python For Engineers</a></li>
+<li><a href="http://slides.com/leonardofabioorozcopadilla/buenas-practicas#/">Buenas Practicas</a></li>
+</ul>
+<hr>
+<ul>
+<li>[1]: <a href="http://dle.rae.es/?id=RpXSRZJ">Segunda Definición</a></li>
+<li>[2]: <a href="https://es.wikipedia.org/wiki/Python">Tomado de Python, Wikipedia</a></li>
+<li>[3]: Debe &mdash;sí o sí&mdash; revisar la página de PEP 8 si las intenciones de aprender python son serias.</li>
+</ul>
+
+          <div class="comments">
+<div id="disqus_thread"></div>
+<script>
+  var disqus_config = function() { this.page.identifier = "/blog/primeros-pasos-en-python"; this.page.url = "http://pybaq.co/blog/primeros-pasos-en-python/"; };
+  (function() {
+    var d = document, s = d.createElement('script');
+    s.src = '//python-barranquilla.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>
+  Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript"
+    rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <footer class="dq-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4">
+          <h4>Sobre Nosotros</h4>
+          <div class="hline-w"></div>
+          <p>Python Barranquilla es una comunidad para todos los interesados en desarrollar aplicaciones en Python dentro de la ciudad de Barranquilla. </p>
+        </div>
+        <div class="col-lg-4">
+          <h4>Redes sociales</h4>
+          <div class="hline-w"></div>
+          <p>
+            <a href="https://github.com/PyBAQ"><i class="fa fa-github"></i></a>
+            <a href="https://www.facebook.com/pybaq/"><i class="fa fa-facebook"></i></a>
+            <a href="http://twitter.com/pybaq"><i class="fa fa-twitter"></i></a>
+            <a href="https://django-python-quilla.slack.com/signup"><i class="fa fa-slack"></i></a>
+            <a href="https://www.instagram.com/pybaq"><i class="fa fa-instagram"></i></a>
+            <a href="https://www.meetup.com/pythonbaq/"><img src="/img/meetup.png" class="meetup-icon"></a>
+          </p>
+        </div>
+        <div class="col-lg-4">
+          <h4>Nuestra Ubicación</h4>
+          <div class="hline-w"></div>
+          <p>
+            Barranquilla, Colombia.<br/>
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="../../js/bootstrap.min.js"></script>
+  <script src="../../js/retina-1.1.0.js"></script>
+  <script src="../../js/jquery.hoverdir.js"></script>
+  <script src="../../js/jquery.hoverex.min.js"></script>
+  <script src="../../js/jquery.prettyPhoto.js"></script>
+  <script src="../../js/jquery.isotope.min.js"></script>
+  <script src="../../js/custom.js"></script>
+
+    <script>
+// Portfolio
+(function($) {
+  "use strict";
+  var $container = $('.portfolio'),
+    $items = $container.find('.portfolio-item'),
+    portfolioLayout = 'fitRows';
+    
+    if( $container.hasClass('portfolio-centered') ) {
+      portfolioLayout = 'masonry';
+    }
+        
+    $container.isotope({
+      filter: '*',
+      animationEngine: 'best-available',
+      layoutMode: portfolioLayout,
+      animationOptions: {
+      duration: 750,
+      easing: 'linear',
+      queue: false
+    },
+    masonry: {
+    }
+    }, refreshWaypoints());
+    
+    function refreshWaypoints() {
+      setTimeout(function() {
+      }, 1000);   
+    }
+        
+    $('nav.portfolio-filter ul a').on('click', function() {
+        var selector = $(this).attr('data-filter');
+        $container.isotope({ filter: selector }, refreshWaypoints());
+        $('nav.portfolio-filter ul a').removeClass('active');
+        $(this).addClass('active');
+        return false;
+    });
+    
+    function getColumnNumber() { 
+      var winWidth = $(window).width(), 
+      columnNumber = 1;
+    
+      if (winWidth > 1200) {
+        columnNumber = 5;
+      } else if (winWidth > 950) {
+        columnNumber = 4;
+      } else if (winWidth > 600) {
+        columnNumber = 3;
+      } else if (winWidth > 400) {
+        columnNumber = 2;
+      } else if (winWidth > 250) {
+        columnNumber = 1;
+      }
+        return columnNumber;
+      }       
+      
+      function setColumns() {
+        var winWidth = $(window).width(), 
+        columnNumber = getColumnNumber(), 
+        itemWidth = Math.floor(winWidth / columnNumber);
+        
+        $container.find('.portfolio-item').each(function() { 
+          $(this).css( { 
+          width : itemWidth + 'px' 
+        });
+      });
+    }
+    
+    function setPortfolio() { 
+      setColumns();
+      $container.isotope('reLayout');
+    }
+      
+    $container.imagesLoaded(function () { 
+      setPortfolio();
+    });
+    
+    $(window).on('resize', function () { 
+      setPortfolio();          
+    });
+
+		$('#body-content').children().children().each(function(index, tag) {
+      var url = ($(tag).attr('href') != undefined) ? $(tag).attr('href').toLowerCase() : "";
+      if (url.indexOf("pybaq.co") >= 0) {
+			  if (tag.tagName == 'A') { $(tag).attr('target', '_blank'); }
+      }
+		});
+})(jQuery);
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-102964527-1', 'auto');
+  ga('send', 'pageview');
+</script>
+  </body>
+</html>
+
+
+
+ 
