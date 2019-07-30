@@ -209,6 +209,24 @@ attach: <a href="https://drive.google.com/open?id=11L8uOcmRJPKujCB6G1Ugw9zb1mhOG
 title: PowerBI y Python: Inteligencia de Negocios + Introducción a servicios de AWS
 ------
 attach: <a href="https://drive.google.com/open?id=18lNOfFPZOPGn0yoLimruIOGEQ61_wFqq">Ppts powerBI</a> / <a href="https://drive.google.com/open?id=1M6TqDKhrBCqv_A8Y5ILjVp2vy5Zh-0CU">Ppts AWS</a>
+###### event-attach ######
+title: Finanzas cuantitativas para análisis de mercados + App del manto de la Tierra
+------
+attach: <a href="https://github.com/PyBAQ/Notebooks/blob/master/finanzasCuantitativasAnalisisMercado/haufgabe_y_criptocurrencies.ipynb">Github</a>
+###### event-attach ######
+title: Crea un sitio web en tiempo real tipo Google doc + Creando comunidades exitosas
+------
+attach:
+
+<a href="https://github.com/GudarJs/paint_backend">Crear un sitio web en tiempo real backend</a> /
+<a href="https://github.com/GudarJs/paint_frontend
+">Crear un sitio web en tiempo real frontend</a> /
+<a href="https://drive.google.com/file/d/1KTpy7l9CZSsa-uUACkXA-fr1l5ayNuEF/view?usp=sharing
+">Ppts crear un sitio web en tiempo real</a> /
+###### event-attach ######
+title: Un algoritmo artístico de estilo neural + PyBAQ: Detrás del escenario
+------
+attach: <a href="https://github.com/PyBAQ/Notebooks/blob/master/finanzasCuantitativasAnalisisMercado/haufgabe_y_criptocurrencies.ipynb">Github</a>
 ----
 class: default
 #### section-block ####
